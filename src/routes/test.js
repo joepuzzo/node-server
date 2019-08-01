@@ -9,6 +9,12 @@ router.post('/session', (req, res) => {
   res.sendStatus(200);
 });
 
+router.get('/insession', (req, res) => {
+  logger.info('test/insession');
+  logger.info('Returning session information', req.session);
+  res.json(req.session);
+});
+
 router.get('/jwt', authorize({ permissions: ['TO_DO_THINGS']}), ( req, res) =>{
   logger.info('GET /testjwt');
   res.sendStatus(200);
